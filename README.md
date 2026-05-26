@@ -16,7 +16,7 @@
 
 复制下面这句话，粘贴到 Claude Code 对话框即可自动安装：
 
-> 帮我安装 proxy-setup skill，地址是 https://raw.githubusercontent.com/Louis-skf/proxy-setup/main/claude-skill/proxy-setup.md
+> 帮我安装 proxy-setup skill，地址是 https://raw.githubusercontent.com/Homelander-Louis/proxy-setup/main/claude-skill/proxy-setup.md
 
 安装后，在 Claude Code 里说「连不上 GitHub 了」或「配置代理」，Claude 会自动帮你检测端口并配置。检测不到代理时，还会主动问你端口号。
 
@@ -26,12 +26,12 @@
 
 **macOS / Linux：**
 ```bash
-sudo curl -o /usr/local/bin/proxy-setup https://raw.githubusercontent.com/Louis-skf/proxy-setup/main/proxy-setup && sudo chmod +x /usr/local/bin/proxy-setup
+sudo curl -o /usr/local/bin/proxy-setup https://raw.githubusercontent.com/Homelander-Louis/proxy-setup/main/proxy-setup && sudo chmod +x /usr/local/bin/proxy-setup
 ```
 
 **Windows (Git Bash)：**
 ```bash
-mkdir -p ~/bin && curl -o ~/bin/proxy-setup https://raw.githubusercontent.com/Louis-skf/proxy-setup/main/proxy-setup && chmod +x ~/bin/proxy-setup && echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
+mkdir -p ~/bin && curl -o ~/bin/proxy-setup https://raw.githubusercontent.com/Homelander-Louis/proxy-setup/main/proxy-setup && chmod +x ~/bin/proxy-setup && echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
 ```
 
 ## 使用
