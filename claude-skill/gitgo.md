@@ -1,13 +1,13 @@
 ---
-name: proxy-setup
+name: gitgo（Git 通）
 description: 自动检测当前运行的代理端口并配置 Git 代理，修复 GitHub 连接问题
 metadata:
   type: utility
 ---
 
-# 代理配置工具
+# gitgo（Git 通）— 代理配置工具
 
-当用户说"连不上 GitHub"、"Git 代理有问题"、"换梯子了"、"配置代理"、"proxy-setup"等，使用此 skill。
+当用户说"连不上 GitHub"、"Git 代理有问题"、"换梯子了"、"配置代理"、"gitgo"、"Git 通"等，使用此 skill。
 
 ## 操作步骤
 

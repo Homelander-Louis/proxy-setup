@@ -1,18 +1,16 @@
 #!/bin/bash
-# proxy-setup — 自动检测代理端口并配置 Git
-# 用法: proxy-setup [端口号]
+# gitgo（Git 通）— 自动检测代理端口并配置 Git
+# 用法: gitgo [端口号]
 
 PORTS=(7890 7891 7892 7893 1080 10808 10809 8080 8118)
 FOUND=""
 
 if [ -n "$1" ]; then
-    # 用户指定了端口
     FOUND="$1"
     if ! netstat -ano 2>/dev/null | grep -q "127.0.0.1:${FOUND} .*LISTENING"; then
         echo "警告: 端口 ${FOUND} 未检测到监听，继续配置..."
     fi
 else
-    # 自动检测
     for port in "${PORTS[@]}"; do
         if netstat -ano 2>/dev/null | grep -q "127.0.0.1:${port} .*LISTENING"; then
             FOUND="$port"
@@ -21,7 +19,7 @@ else
     done
     if [ -z "$FOUND" ]; then
         echo "未检测到运行中的代理（已检查: ${PORTS[*]}）"
-        echo "请先启动梯子软件，或指定端口: proxy-setup <端口号>"
+        echo "请先启动梯子软件，或指定端口: gitgo <端口号>"
         exit 1
     fi
 fi
@@ -30,7 +28,6 @@ echo "检测到代理: 127.0.0.1:$FOUND"
 git config --global http.proxy "http://127.0.0.1:$FOUND"
 git config --global https.proxy "http://127.0.0.1:$FOUND"
 
-# SSH → HTTPS 自动转换（如未配置则添加）
 git config --global url."https://github.com/".insteadOf "git@github.com:" 2>/dev/null
 git config --global url."https://github.com/".insteadOf "ssh://git@github.com/" 2>/dev/null
 

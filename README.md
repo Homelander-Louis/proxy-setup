@@ -1,12 +1,12 @@
-# proxy-setup
+# gitgo（Git 通）
 
-切换梯子后自动配置 Git 代理，一条命令搞定。
+切换梯子后自动配置 Git 代理，一条命令让 Git 重新通网。
 
 ## 解决了什么问题
 
 用多个梯子软件（Clash Verge、v2rayN、Shadowsocks、山海等）来回切换时，每个软件的代理端口不一样。每次换梯子都得手动改 Git 配置，找端口、改设置、测试连通性，反复折腾。
 
-`proxy-setup` 自动完成这一切：扫描你电脑上正在运行的代理端口 → 配置 Git → 验证 GitHub 是否连通。整个过程一条命令，不用动脑子。
+`gitgo` 自动完成这一切：扫描你电脑上正在运行的代理端口 → 配置 Git → 验证 GitHub 是否连通。整个过程一条命令，不用动脑子。
 
 另外，很多梯子的 HTTP 代理不支持转发 SSH（22 端口），导致 `git@github.com` 地址无法 clone。脚本会自动配置 SSH 地址转 HTTPS，从根本上解决这个问题。
 
@@ -16,29 +16,29 @@
 
 复制下面这句话，粘贴到 Claude Code 对话框即可自动安装：
 
-> 帮我安装 proxy-setup skill，地址是 https://raw.githubusercontent.com/Homelander-Louis/proxy-setup/main/claude-skill/proxy-setup.md
+> 帮我安装 gitgo（Git 通）skill，地址是 https://raw.githubusercontent.com/Homelander-Louis/proxy-setup/main/claude-skill/gitgo.md
 
 安装后，在 Claude Code 里说「连不上 GitHub 了」或「配置代理」，Claude 会自动帮你检测端口并配置。检测不到代理时，还会主动问你端口号。
 
 ### 方式二：独立脚本
 
-安装到系统 PATH，之后在任何终端里直接输入 `proxy-setup` 即可使用。
+安装到系统 PATH，之后在任何终端里直接输入 `gitgo` 即可使用。
 
 **macOS / Linux：**
 ```bash
-sudo curl -o /usr/local/bin/proxy-setup https://raw.githubusercontent.com/Homelander-Louis/proxy-setup/main/proxy-setup && sudo chmod +x /usr/local/bin/proxy-setup
+sudo curl -o /usr/local/bin/gitgo https://raw.githubusercontent.com/Homelander-Louis/proxy-setup/main/gitgo && sudo chmod +x /usr/local/bin/gitgo
 ```
 
 **Windows (Git Bash)：**
 ```bash
-mkdir -p ~/bin && curl -o ~/bin/proxy-setup https://raw.githubusercontent.com/Homelander-Louis/proxy-setup/main/proxy-setup && chmod +x ~/bin/proxy-setup && echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
+mkdir -p ~/bin && curl -o ~/bin/gitgo https://raw.githubusercontent.com/Homelander-Louis/proxy-setup/main/gitgo && chmod +x ~/bin/gitgo && echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
 ```
 
 ## 使用
 
 ```bash
-proxy-setup           # 自动扫描并配置
-proxy-setup 7899      # 跳过扫描，直接用指定端口
+gitgo           # 自动扫描并配置
+gitgo 7899      # 跳过扫描，直接用指定端口
 ```
 
 脚本做了什么：
@@ -58,17 +58,17 @@ proxy-setup 7899      # 跳过扫描，直接用指定端口
 | Clash（混合端口） | 7892 |
 | Privoxy | 8118 |
 
-如果你的梯子端口不在上述列表中，运行 `proxy-setup <你的端口>` 直接指定即可。
+如果你的梯子端口不在上述列表中，运行 `gitgo <你的端口>` 直接指定即可。
 
 ## 示例
 
 ```bash
-$ proxy-setup
+$ gitgo
 检测到代理: 127.0.0.1:7890
 Git 代理已更新 → 127.0.0.1:7890
 ✓ GitHub 连接正常
 
-$ proxy-setup 7899
+$ gitgo 7899
 检测到代理: 127.0.0.1:7899
 Git 代理已更新 → 127.0.0.1:7899
 ✓ GitHub 连接正常
