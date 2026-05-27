@@ -16,7 +16,7 @@
 
 复制下面这句话，粘贴到 Claude Code 对话框即可自动安装：
 
-> 帮我安装 gitgo（Git 通）skill，地址是 https://raw.githubusercontent.com/Homelander-Louis/proxy-setup/main/claude-skill/gitgo.md
+> 帮我安装 gitgo（Git 通）skill，地址是 https://raw.githubusercontent.com/Homelander-Louis/gitgo/main/claude-skill/gitgo.md
 
 安装后，在 Claude Code 里说「连不上 GitHub 了」或「配置代理」，Claude 会自动帮你检测端口并配置。检测不到代理时，还会主动问你端口号。
 
@@ -26,12 +26,12 @@
 
 **macOS / Linux：**
 ```bash
-sudo curl -o /usr/local/bin/gitgo https://raw.githubusercontent.com/Homelander-Louis/proxy-setup/main/gitgo && sudo chmod +x /usr/local/bin/gitgo
+sudo curl -o /usr/local/bin/gitgo https://raw.githubusercontent.com/Homelander-Louis/gitgo/main/gitgo && sudo chmod +x /usr/local/bin/gitgo
 ```
 
 **Windows (Git Bash)：**
 ```bash
-mkdir -p ~/bin && curl -o ~/bin/gitgo https://raw.githubusercontent.com/Homelander-Louis/proxy-setup/main/gitgo && chmod +x ~/bin/gitgo && echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
+mkdir -p ~/bin && curl -o ~/bin/gitgo https://raw.githubusercontent.com/Homelander-Louis/gitgo/main/gitgo && chmod +x ~/bin/gitgo && echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
 ```
 
 ## 使用
