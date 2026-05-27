@@ -35,7 +35,12 @@ export HTTP_PROXY="http://127.0.0.1:$FOUND"
 export HTTPS_PROXY="http://127.0.0.1:$FOUND"
 export http_proxy="http://127.0.0.1:$FOUND"
 export https_proxy="http://127.0.0.1:$FOUND"
-echo "Git 代理已更新 → 127.0.0.1:$FOUND"
+
+# npm 代理（Claude Code 自动更新需要）
+npm config set proxy "http://127.0.0.1:$FOUND" 2>/dev/null
+npm config set https-proxy "http://127.0.0.1:$FOUND" 2>/dev/null
+
+echo "Git + npm 代理已更新 → 127.0.0.1:$FOUND"
 
 if git ls-remote https://github.com/octocat/Hello-World.git HEAD &>/dev/null; then
     echo "✓ GitHub 连接正常"
